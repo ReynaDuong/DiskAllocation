@@ -1,13 +1,15 @@
-package Driver;
+package FileSystem;
+
+import Driver.MainGUI;
 
 public class IndexedFileSystem extends FileSystem {
 
-    IndexedFileSystem (){
+    public IndexedFileSystem (){
         dataArray[0] = new FileTableCC();
         dataArray[1] = new BitMap();
 
         // 254 blocks to hold data
-        for (int i = 2; i < DriverMain.BLOCKCOUNT; i++){
+        for (int i = 2; i < MainGUI.BLOCKCOUNT; i++){
             dataArray[i] = new DataBlockCI();
         }
     }
@@ -17,7 +19,7 @@ public class IndexedFileSystem extends FileSystem {
     }
 
     @Override
-    public void displayBitmap(){
+    public void displayBlock(int blockNumber) {
 
     }
 }

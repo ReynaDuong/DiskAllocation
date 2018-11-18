@@ -1,4 +1,4 @@
-package Driver;
+package FileSystem;
 
 public class FileTableIndexed extends FileTable {
     private class Record{

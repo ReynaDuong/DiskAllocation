@@ -1,13 +1,15 @@
-package Driver;
+package FileSystem;
+
+import Driver.MainGUI;
 
 public class BitMap extends AbstractBlock {
     private boolean[] bitmap;
 
     BitMap(){
-        bitmap = new boolean[DriverMain.BLOCKCOUNT];
+        bitmap = new boolean[MainGUI.BLOCKCOUNT];
 
         // empty disk
-        for (int i = 0; i < DriverMain.BLOCKCOUNT; i++){
+        for (int i = 0; i < MainGUI.BLOCKCOUNT; i++){
             bitmap[i] = false;
         }
 
@@ -29,7 +31,7 @@ public class BitMap extends AbstractBlock {
 
     @Override
     public void display(){
-        for (int i = 1; i <= DriverMain.BLOCKCOUNT; i++){
+        for (int i = 1; i <= MainGUI.BLOCKCOUNT; i++){
             System.out.print(bitmap[i-1] ? 1: 0);
 
 

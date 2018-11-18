@@ -1,13 +1,15 @@
-package Driver;
+package FileSystem;
+
+import Driver.MainGUI;
 
 public class ContiguousFileSystem extends FileSystem{
 
-    ContiguousFileSystem (){
+    public ContiguousFileSystem(){
         dataArray[0] = new FileTableCC();
         dataArray[1] = new BitMap();
 
         // 254 blocks to hold data
-        for (int i = 2; i < DriverMain.BLOCKCOUNT; i++){
+        for (int i = 2; i < MainGUI.BLOCKCOUNT; i++){
             dataArray[i] = new DataBlockCI();
         }
     }
@@ -20,8 +22,8 @@ public class ContiguousFileSystem extends FileSystem{
     }
 
     @Override
-    public void displayBitmap(){
-        dataArray[1].display();
+    public void displayBlock (int blockNum){
+        // display the block
+        dataArray[blockNum].display();
     }
-
 }
