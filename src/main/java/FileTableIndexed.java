@@ -1,5 +1,3 @@
-package FileSystem;
-
 public class FileTableIndexed extends FileTable {
     private class Record{
         String fileName;
@@ -13,5 +11,10 @@ public class FileTableIndexed extends FileTable {
     @Override
     public void display() {
 
+    }
+
+    @Override
+    public boolean isFileTableFull(){
+        return false;
     }
 }

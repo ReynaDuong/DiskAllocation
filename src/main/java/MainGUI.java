@@ -1,8 +1,3 @@
-package Driver;
-
-import FileSystem.*;
-import FileSystem.FileSystem;
-
 import java.io.File;
 import java.util.Scanner;
 
@@ -50,6 +45,7 @@ public class MainGUI {
 
                         break;
                     case 6: // Copy a file from the real system to a file in the simulation
+//                        fileName = "/Users/minhduong/Desktop/My Projects/Java Project/SE 4348 OS/DiskAllocation/src/main/java/Driver/a.txt";
                         fileName = getFileName();
                         mainController.copyFile(fileName);
                         break;
@@ -61,7 +57,8 @@ public class MainGUI {
                 }
             }
             catch (Exception e){
-                System.out.println(e.getMessage());
+//                System.out.println(e.getMessage());
+                e.printStackTrace();
             }
         }
         while (choice != 8);
@@ -152,12 +149,13 @@ public class MainGUI {
             fileName = scanner.nextLine().trim();
 
             file = new File(fileName);
+            System.out.println(file.getName());
         }
-        while (fileName.length() <= 8 && file.exists());
+        while (!file.exists() && fileName.length() > 8);
 
         System.out.println("File exists");
 
-        return fileName;
+        return file.getAbsolutePath();
     }
 
 }

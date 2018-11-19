@@ -1,7 +1,3 @@
-package FileSystem;
-
-import Driver.MainGUI;
-
 public class IndexedFileSystem extends FileSystem {
 
     public IndexedFileSystem (){
@@ -15,7 +11,10 @@ public class IndexedFileSystem extends FileSystem {
     }
 
     @Override
-    public void writeBlock (int blockNum){
+    public void writeBlock(int blockNum, byte[] array) {
+        // check if block is empty
+
+        // write to the block
     }
 
     @Override

@@ -1,5 +1,3 @@
-package Driver;
-
 class MainController {
     private MainModel model;
 
@@ -17,7 +15,7 @@ class MainController {
     void copyFile(String fileName) throws Exception {
 
         if (model.isFileSystemFull()){
-            throw new Exception("The file table is empty.");
+            throw new Exception("The file table is full.");
         }
         else {
             model.copyFile(fileName);

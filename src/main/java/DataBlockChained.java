@@ -1,5 +1,3 @@
-package FileSystem;
-
 public class DataBlockChained extends DataBlock {
     private int nextBlock;
     private byte[] dataByte;
@@ -19,6 +17,11 @@ public class DataBlockChained extends DataBlock {
 
     @Override
     public void display() {
+
+    }
+
+    @Override
+    public void writeBlock(byte[] dataArray) {
 
     }
 }

@@ -1,7 +1,3 @@
-package FileSystem;
-
-import Driver.MainGUI;
-
 public class ContiguousFileSystem extends FileSystem{
 
     public ContiguousFileSystem(){
@@ -15,10 +11,11 @@ public class ContiguousFileSystem extends FileSystem{
     }
 
     @Override
-    public void writeBlock (int blockNum){
-        // check if block is empty
+    public void writeBlock (int blockNum, byte[] array){
+        ((DataBlockCI)dataArray[blockNum]).writeBlock(array);
 
-        // write to the block
+        // update bitmap
+        ((BitMap)dataArray[1]).updateBitmapLoadBlock(blockNum);
     }
 
     @Override

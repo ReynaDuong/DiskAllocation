@@ -1,6 +1,4 @@
-package FileSystem;
-
-import Driver.MainGUI;
+import java.util.Arrays;
 
 public class DataBlockCI extends DataBlock{
     private byte[] dataByte;
@@ -21,5 +19,10 @@ public class DataBlockCI extends DataBlock{
         }
 
         System.out.println();
+    }
+
+    @Override
+    public void writeBlock(byte[] dataArray) {
+        dataByte = Arrays.copyOf(dataArray, dataArray.length);
     }
 }
