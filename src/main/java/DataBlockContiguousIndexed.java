@@ -1,15 +1,19 @@
 import java.util.Arrays;
 
-public class DataBlockCI extends DataBlock{
+public class DataBlockContiguousIndexed extends DataBlock{
     private byte[] dataByte;
 
-    DataBlockCI (){
-        dataByte = new byte[MainGUI.BLOCKLENGTH];
+    DataBlockContiguousIndexed(){
+        dataByte = new byte[MainGUI.BLOCK_LENGTH];
+    }
+
+    public byte[] getDataByte() {
+        return dataByte;
     }
 
     @Override
     public void display() {
-        for (int i = 1; i <= MainGUI.BLOCKCOUNT; i++){
+        for (int i = 1; i <= MainGUI.BLOCK_LENGTH; i++){
             System.out.print(dataByte[i-1]);
 
 
@@ -25,4 +29,12 @@ public class DataBlockCI extends DataBlock{
     public void writeBlock(byte[] dataArray) {
         dataByte = Arrays.copyOf(dataArray, dataArray.length);
     }
+
+    public void deleteBlock(){
+        for (int i = 0; i < MainGUI.BLOCK_COUNT; i++){
+            dataByte[i] = 0;
+        }
+    }
+
+
 }

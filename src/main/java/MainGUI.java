@@ -3,8 +3,8 @@ import java.util.Scanner;
 
 public class MainGUI {
 
-    public static final int BLOCKCOUNT = 256;
-    public static final int BLOCKLENGTH = 512;
+    public static final int BLOCK_COUNT = 256;
+    public static final int BLOCK_LENGTH = 512;
 
     public static void main (String [] args){
         int choice = 0;
@@ -17,19 +17,20 @@ public class MainGUI {
         Scanner scanner = new Scanner(System.in);
 
         // choose allocation methods
-        System.out.println("File system type: ");
+        System.out.print("File system type (contiguous, chained, or indexed): ");
         method = scanner.nextLine();
         mainController.setFileSystem(method);
 
         // choice for the menu
         do{
             try {
-
                 choice = chooseOptions();
+                fileName = "";
 
                 switch (choice) {
                     case 1: // Display a file
-                        fileName = getFileName();
+                        fileName = scanner.nextLine();
+                        mainController.displayFile(fileName);
                         break;
                     case 2: // Display the file table
                         mainController.displayBlock(0);
@@ -42,22 +43,23 @@ public class MainGUI {
                         mainController.displayBlock(blockNum);
                         break;
                     case 5: // Copy a file from the simulation to a file on the real system
-
+                        fileName = scanner.nextLine();
+                        mainController.copyToRealSystem(fileName);
                         break;
                     case 6: // Copy a file from the real system to a file in the simulation
-//                        fileName = "/Users/minhduong/Desktop/My Projects/Java Project/SE 4348 OS/DiskAllocation/src/main/java/Driver/a.txt";
-                        fileName = getFileName();
+                        fileName = getFileNameFromRealSystem();
                         mainController.copyFile(fileName);
                         break;
                     case 7: // Delete a file
-
+                        fileName = scanner.nextLine();
+                        mainController.deleteFile(fileName);
                         break;
                     default: // Exit
                         break;
                 }
             }
-            catch (Exception e){
-//                System.out.println(e.getMessage());
+            catch (Exception e) {
+                System.out.println(e.getMessage());
                 e.printStackTrace();
             }
         }
@@ -94,7 +96,7 @@ public class MainGUI {
 
         // get user option until getting a valid choice
         do {
-            System.out.println("Block number to display (from 2 to 255) : ");
+            System.out.print("Block number to display (from 2 to 255) : ");
 
             // get user's option
             choice = checkRange(getInt(), 0, 255);
@@ -139,23 +141,22 @@ public class MainGUI {
         return x;
     }
 
-    private static String getFileName(){
+    private static String getFileNameFromRealSystem(){
         String fileName = "";
         Scanner scanner = new Scanner(System.in);
         File file = null;
 
         do {
-            System.out.println("Enter file name (max 8 characters): ");
+            System.out.print("Enter file name (max 8 characters): ");
             fileName = scanner.nextLine().trim();
 
             file = new File(fileName);
             System.out.println(file.getName());
         }
-        while (!file.exists() && fileName.length() > 8);
-
-        System.out.println("File exists");
+        while (file.getName().length() > 8);
 
         return file.getAbsolutePath();
     }
+
 
 }

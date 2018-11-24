@@ -1,8 +1,12 @@
-public class FileTableCC extends FileTable {
+public class FileTableContiguousChained extends FileTable {
     private class Record{
         String fileName;
         int startBlock;
         int length;
+
+        Record(){
+
+        }
 
         Record(String fileName, int startBlock, int length){
             this.fileName = fileName;
@@ -13,7 +17,7 @@ public class FileTableCC extends FileTable {
 
     private Record[] fileTable;
 
-    FileTableCC(){
+    FileTableContiguousChained(){
         fileTable = new Record[12];
     }
 
@@ -46,6 +50,42 @@ public class FileTableCC extends FileTable {
         }
     }
 
+    public void deleteFileInfo(String fileName){
+        for (int i = 0; i < 12; i++){
+            if (fileTable[i].fileName.equals(fileName)){
+                // delete info
+                fileTable[i] = null;
+                break;
+            }
+        }
+    }
+
+    public boolean doesFileExist(String fileName){
+        for (int i = 0; i < 12; i++){
+            if (fileTable[i] != null && fileTable[i].fileName.equals(fileName)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int getFileStartBlock(String fileName){
+        for (int i = 0; i < 12; i++){
+            if (fileTable[i] != null && fileTable[i].fileName.equals(fileName)){
+                return fileTable[i].startBlock;
+            }
+        }
+        return 0;
+    }
+
+    public int getFileLength(String fileName){
+        for (int i = 0; i < 12; i++){
+            if (fileTable[i] != null && fileTable[i].fileName.equals(fileName)){
+                return fileTable[i].length;
+            }
+        }
+        return 0;
+    }
 
     @Override
     public void display() {
