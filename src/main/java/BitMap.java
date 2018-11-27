@@ -35,6 +35,9 @@ public class BitMap extends AbstractBlock {
             if (!bitmap[i]) {
                 blockCount++;
             }
+            else{
+                startBlock ++;
+            }
             if (blockCount == numberOfBlock){
                 break;
             }
@@ -42,7 +45,6 @@ public class BitMap extends AbstractBlock {
         return startBlock;
     }
 
-    @Override
     public void display(){
         for (int i = 1; i <= MainGUI.BLOCK_COUNT; i++){
             System.out.print(bitmap[i-1] ? 1: 0);

@@ -30,7 +30,6 @@ public class FileTableContiguousChained extends FileTable {
         return true;
     }
 
-    @Override
     public boolean isFileTableFull(){
         for (int i = 0; i < 12; i++){
             if (fileTable[i] == null){
@@ -87,7 +86,6 @@ public class FileTableContiguousChained extends FileTable {
         return 0;
     }
 
-    @Override
     public void display() {
         if (isFileTableEmpty()){
             System.out.println("The file table is empty.");
@@ -96,8 +94,6 @@ public class FileTableContiguousChained extends FileTable {
             for (int i = 0; i < 12; i++) {
                 if (fileTable[i] != null) {
                     System.out.println(fileTable[i].fileName + "\t" + fileTable[i].startBlock + "\t" + fileTable[i].length);
-
-                    System.out.println("\n");
                 }
             }
         }

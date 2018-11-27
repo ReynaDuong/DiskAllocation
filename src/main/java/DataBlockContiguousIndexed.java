@@ -11,7 +11,6 @@ public class DataBlockContiguousIndexed extends DataBlock{
         return dataByte;
     }
 
-    @Override
     public void display() {
         for (int i = 1; i <= MainGUI.BLOCK_LENGTH; i++){
             System.out.print(dataByte[i-1]);
@@ -25,7 +24,6 @@ public class DataBlockContiguousIndexed extends DataBlock{
         System.out.println();
     }
 
-    @Override
     public void writeBlock(byte[] dataArray) {
         dataByte = Arrays.copyOf(dataArray, dataArray.length);
     }

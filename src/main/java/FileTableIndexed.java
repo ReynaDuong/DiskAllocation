@@ -37,7 +37,7 @@ public class FileTableIndexed extends FileTable {
         return false;
     }
 
-    @Override
+
     public void display() {
         if (isFileTableEmpty()){
             System.out.println("The file table is empty.");
@@ -46,14 +46,12 @@ public class FileTableIndexed extends FileTable {
             for (int i = 0; i < 14; i++) {
                 if (fileTable[i] != null) {
                     System.out.println(fileTable[i].fileName + "\t" + fileTable[i].indexedBlock);
-
-                    System.out.println("\n");
                 }
             }
         }
     }
 
-    @Override
+
     public boolean isFileTableFull(){
         for (int i = 0; i < 12; i++){
             if (fileTable[i] == null){

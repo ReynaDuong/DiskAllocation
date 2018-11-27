@@ -10,7 +10,6 @@ public class ContiguousFileSystem extends FileSystem{
         }
     }
 
-    @Override
     public void writeBlock (int blockNum, byte[] array){
         ((DataBlockContiguousIndexed)dataArray[blockNum]).writeBlock(array);
 
@@ -18,7 +17,6 @@ public class ContiguousFileSystem extends FileSystem{
         ((BitMap)dataArray[1]).updateBitmapLoadBlock(blockNum);
     }
 
-    @Override
     public void displayBlock (int blockNum){
         // display the block
         dataArray[blockNum].display();

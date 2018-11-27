@@ -10,7 +10,6 @@ public class IndexedFileSystem extends FileSystem {
         }
     }
 
-    @Override
     public void writeBlock(int blockNum, byte[] array) {
         DataBlockContiguousIndexed dataBlock = (DataBlockContiguousIndexed)dataArray[blockNum];
 
@@ -41,7 +40,6 @@ public class IndexedFileSystem extends FileSystem {
         ((BitMap)dataArray[1]).updateBitmapLoadBlock(indexedBlockNum);
     }
 
-    @Override
     public void displayBlock(int blockNumber) {
         if (dataArray[blockNumber] == null){
             System.out.println("NULL");

@@ -17,7 +17,6 @@ public class DataBlockChained extends DataBlock {
         return isEmpty() && nextBlock == -1;
     }
 
-    @Override
     public void display() {
         for (int i = 1; i <= 508; i++){
             System.out.print(dataByte[i-1]);
@@ -38,7 +37,6 @@ public class DataBlockChained extends DataBlock {
         return nextBlock;
     }
 
-    @Override
     public void writeBlock(byte[] dataArray){}
 
     public void writeBlock(byte[] dataArray, int nextBlock){

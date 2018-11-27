@@ -43,14 +43,17 @@ public class MainGUI {
                         mainController.displayBlock(blockNum);
                         break;
                     case 5: // Copy a file from the simulation to a file on the real system
+                        System.out.print("File name: ");
                         fileName = scanner.nextLine();
                         mainController.copyToRealSystem(fileName);
                         break;
                     case 6: // Copy a file from the real system to a file in the simulation
+                        System.out.print("File name: ");
                         fileName = getFileNameFromRealSystem();
                         mainController.copyFile(fileName);
                         break;
                     case 7: // Delete a file
+                        System.out.print("File name: ");
                         fileName = scanner.nextLine();
                         mainController.deleteFile(fileName);
                         break;
@@ -147,7 +150,7 @@ public class MainGUI {
         File file = null;
 
         do {
-            System.out.print("Enter file name (max 8 characters): ");
+            System.out.print("Enter file name with absolute path (max 8 characters): ");
             fileName = scanner.nextLine().trim();
 
             file = new File(fileName);
